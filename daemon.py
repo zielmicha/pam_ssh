@@ -96,7 +96,7 @@ def handle(sock):
     f.write(str(code) + '\n')
 
 def loop():
-    ADDR = 'sock'
+    ADDR = '/var/run/pam_ssh.sock'
     if os.path.exists(ADDR):
         os.remove(ADDR)
     sock = socket.socket(socket.AF_UNIX)

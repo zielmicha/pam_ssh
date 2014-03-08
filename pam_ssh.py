@@ -8,7 +8,7 @@ auth_token = None
 
 def rpc(name, args):
     sock = socket.socket(socket.AF_UNIX)
-    sock.connect('/home/michal/pam_ssh/sock')
+    sock.connect('/var/run/pam_ssh.sock')
     f = sock.makefile('r+')
     f.write(json.dumps([name, args]) + '\n')
     f.flush()
