@@ -23,7 +23,6 @@ def pam_sm_authenticate(pamh, flags, argv):
     if pw.pw_uid < 1000:
         return pamh.PAM_AUTH_ERR
 
-    assert username == 'zlmch'
     auth_token = pamh.authtok
     if len(auth_token) > 1024:
         return pamh.PAM_AUTH_ERR

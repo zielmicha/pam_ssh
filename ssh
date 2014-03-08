@@ -1,0 +1,14 @@
+Name: SSH authentication
+Default: yes
+Priority: 128
+Auth-Type: Primary
+Auth:
+	[success=end default=ignore]	pam_python.so pam_ssh.py use_first_pass
+Auth-Initial:
+	[success=end default=ignore]	pam_python.so pam_ssh.py
+
+Session-Type: Additional
+Session:
+	optional	pam_python.so pam_ssh.py
+Session-Initial:
+	required	pam_python.so pam_ssh.py

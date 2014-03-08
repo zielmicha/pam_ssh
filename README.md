@@ -3,12 +3,27 @@ pam_ssh
 
 Use SSH server to authenticate and provide /home directory for Linux client.
 
-Installation
-----------
+## Installation
 
 ```
-cp pam_ssh.py /lib/security
+cp pam_ssh.py /lib/security/
 ```
+
+Customize config:
+
+```
+cp config.json.example config.json
+nano config.json
+```
+
+### Debian/Ubuntu
+
+```
+cp ssh /usr/share/pam-configs/
+pam-auth-update
+```
+
+### Non-Debian systems
 
 Add to `/etc/pam.d/common-auth`:
 
@@ -20,13 +35,6 @@ Add to `/etc/pam.d/common-session`:
 
 ```
 session    requisite       pam_python.so pam_ssh.py
-```
-
-Customize config:
-
-```
-cp config.json.example config.json
-nano config.json
 ```
 
 Usage
